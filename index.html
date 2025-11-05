@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Keuangan Advanced — Dark & Bright</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- TF.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.14.0/dist/tf.min.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body data-theme="dark">
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <h1>AI Keuangan Advanced</h1>
+        <div class="tag">Serius • Berguna • Privasi lokal</div>
+      </div>
+      <div class="controls">
+        <button id="themeToggle" class="btn ghost">Theme</button>
+        <button id="settingsBtn" class="btn ghost">Pengaturan ⚙️</button>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <section class="panel left">
+        <h2>Input & Quick Actions</h2>
+
+        <label>Masukkan penghasilan (angka):</label>
+        <input id="incomeInput" type="number" placeholder="Contoh: 5000000" />
+
+        <label>Pilih periode</label>
+        <select id="periodSelect">
+          <option value="monthly">Per Bulan</option>
+          <option value="daily">Per Hari</option>
+        </select>
+
+        <div class="row">
+          <button id="analyzeBtn" class="btn primary">Analisa & Rekomendasi</button>
+          <button id="predictBtn" class="btn">Prediksi</button>
+        </div>
+
+        <hr />
+
+        <h3>Tabungan & Wishlist</h3>
+        <label>Jumlah tabungan saat ini (Rp):</label>
+        <input id="savingsInput" type="number" placeholder="Contoh: 2000000" />
+
+        <div class="wish-row">
+          <label>Apakah Anda menginginkan sesuatu?</label>
+          <select id="wantSelect">
+            <option value="no">Tidak</option>
+            <option value="yes">Iya, mau</option>
+          </select>
+        </div>
+
+        <div id="wishForm" class="hidden">
+          <label>Nama barang/keinginan:</label>
+          <input id="wishName" type="text" placeholder="Contoh: Sepatu, HP, etc." />
+          <label>Harga barang (Rp):</label>
+          <input id="wishPrice" type="number" placeholder="Contoh: 1500000" />
+          <button id="addWish" class="btn">Tambahkan ke Wishlist</button>
+        </div>
+
+        <hr />
+
+        <h3>Transaksi (AI belajar dari sini)</h3>
+        <label>Deskripsi</label>
+        <input id="txDesc" type="text" placeholder="Makan siang" />
+        <label>Jumlah (Rp)</label>
+        <input id="txAmt" type="number" placeholder="35000" />
+        <label>Kategori</label>
+        <select id="txCat">
+          <option value="essentials">Essentials</option>
+          <option value="savings">Savings</option>
+          <option value="wants">Wants</option>
+          <option value="other">Other</option>
+        </select>
+        <div class="row">
+          <button id="addTx" class="btn">Tambah Transaksi</button>
+          <button id="clearData" class="btn ghost">Hapus Semua Data</button>
+        </div>
+
+        <hr />
+        <div class="small muted">Privasi: semua data dan model disimpan secara lokal (IndexedDB/LocalStorage). Untuk penyimpanan terpusat butuh server terpisah.</div>
+      </section>
+
+      <section class="panel right">
+        <div class="top-summary">
+          <div>
+            <h3>Ringkasan</h3>
+            <div id="summaryBox" class="box">Belum ada analisa. Masukkan data lalu klik Analisa.</div>
+          </div>
+          <div class="charts">
+            <canvas id="pieChart" width="300" height="200"></canvas>
+            <canvas id="lineChart" width="600" height="200"></canvas>
+          </div>
+        </div>
+
+        <div class="data-panels">
+          <div class="box">
+            <h4>Wishlist</h4>
+            <div id="wishlistView">(kosong)</div>
+          </div>
+          <div class="box">
+            <h4>Transaksi Tercatat</h4>
+            <div id="txView">(kosong)</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Settings modal -->
+    <div id="settingsModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Pengaturan</h3>
+        <label>Theme default:</label>
+        <select id="defaultTheme">
+          <option value="dark">Dark Elegan</option>
+          <option value="bright">Bright Ceria</option>
+        </select>
+        <label>Auto-train setiap transaksi?</label>
+        <select id="autoTrain">
+          <option value="yes">Ya</option>
+          <option value="no">Tidak</option>
+        </select>
+        <label>Confidence threshold (0-1)</label>
+        <input id="confThresh" type="number" min="0" max="1" step="0.05" value="0.6" />
+        <div class="row">
+          <button id="saveSettings" class="btn primary">Simpan</button>
+          <button id="closeSettings" class="btn ghost">Tutup</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">Advanced Edition • Siap dipakai publik (client-side heavy). Created: 2025-11-05</footer>
+  </div>
+
+<script>document.body.querySelector('.footer').textContent = 'Advanced Edition • Siap dipakai publik (client-side heavy). Created: 2025-11-05';</script>
+<script src="ai.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
