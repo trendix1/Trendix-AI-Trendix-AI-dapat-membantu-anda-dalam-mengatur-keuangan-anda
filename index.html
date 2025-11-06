@@ -9,6 +9,92 @@
   <link rel="icon" href="favicon-16x16.ico"sizes="16x16" type="image/ico">
   <link rel="icon" href="favicon-32x32.ico" sizes="32x32" type="image/ico">
   <link rel="apple-touch-icon" href="apple-touch-icon.ico" sizes="180x180" type="image/ico">
+  meta name="description" content="Deskripsi singkat halaman — menjelaskan inti konten dengan kata kunci relevan (maks ~150-160 karakter)." />
+  <meta name="robots" content="index, follow" />
+  <!-- optional legacy -->
+  <meta name="keywords" content="kata kunci1, kata kunci2, kata kunci3" />
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://www.example.com/halaman-contoh/" />
+
+  <!-- OPEN GRAPH (untuk share) -->
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Contoh Judul Halaman SEO — Nama Situs Anda" />
+  <meta property="og:description" content="Deskripsi singkat halaman untuk open graph." />
+  <meta property="og:url" content="https://www.example.com/halaman-contoh/" />
+  <meta property="og:site_name" content="Nama Situs Anda" />
+  <meta property="og:image" content="https://www.example.com/images/preview.jpg" />
+  <meta property="og:image:alt" content="Gambar preview" />
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contoh Judul Halaman SEO — Nama Situs Anda" />
+  <meta name="twitter:description" content="Deskripsi singkat halaman untuk Twitter." />
+  <meta name="twitter:image" content="https://www.example.com/images/preview.jpg" />
+
+  <!-- PREFETCH / PRECONNECT (performance hints) -->
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="//www.example.com" />
+
+  <!-- Hreflang (multibahasa) contoh -->
+  <!-- <link rel="alternate" href="https://www.example.com/" hreflang="id" /> -->
+  <!-- <link rel="alternate" href="https://www.example.com/en/" hreflang="en" /> -->
+
+  <!-- Structured Data (JSON-LD) - contoh Organization + WebSite + Breadcrumb + Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.example.com/#org",
+        "name": "Nama Situs Anda",
+        "url": "https://www.example.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.example.com/images/logo.png"
+        },
+        "sameAs": [
+          "https://www.facebook.com/yourpage",
+          "https://twitter.com/yourhandle"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.example.com/#website",
+        "url": "https://www.example.com/",
+        "name": "Nama Situs Anda",
+        "publisher": { "@id": "https://www.example.com/#org" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.example.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Beranda", "item": "https://www.example.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Kategori", "item": "https://www.example.com/kategori/" },
+          { "@type": "ListItem", "position": 3, "name": "Halaman Contoh", "item": "https://www.example.com/halaman-contoh/" }
+        ]
+      },
+      {
+        "@type": "Article",
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.example.com/halaman-contoh/" },
+        "headline": "Contoh Judul Halaman SEO — Nama Situs Anda",
+        "description": "Ringkasan singkat artikel/halaman (gunakan 1 kalimat jelas).",
+        "image": ["https://www.example.com/images/preview.jpg"],
+        "author": { "@type": "Person", "name": "Nama Penulis" },
+        "publisher": { "@id": "https://www.example.com/#org" },
+        "datePublished": "2025-11-06T08:00:00+07:00",
+        "dateModified": "2025-11-06T12:00:00+07:00"
+      }
+    ]
+  }
+  </script>
 </head>
 <body data-theme="amoled">
   <div class="app">
